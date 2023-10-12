@@ -1,0 +1,7 @@
+in both mangr and worker : 
+
+docker build -t worker2 .
+
+in manager : 
+
+docker service create   --name worker-2   --network my_network   -p 3000:3000   --constraint 'node.labels.name == w2'  worker2
